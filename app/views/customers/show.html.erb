@@ -1,0 +1,30 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @customer %>
+
+<h3>List of Accounts:</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Balance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @customer.accounts.each do |account| %>
+  <tr>
+    <td><%= account.account_type %></td>
+    <td><%= account.balance %></td>
+  </tr>
+  <% end %>
+
+  </tbody>
+</table>
+
+<div>
+  <%= link_to "Edit this customer", edit_customer_path(@customer) %> |
+  <%= link_to "Back to customers", customers_path %>
+
+  <%= button_to "Destroy this customer", @customer, method: :delete %>
+</div>
